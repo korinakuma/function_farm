@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+#container {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+}
+
+#problem {
+    background-color: #c8bfe7;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 40%;
+
+}
+
+#description {
+    border-radius: 1rem;
+    background-color: white;
+    color: #2c1190;
+    padding: 1rem;
+}
+
+#visuals {
+    background-color: #22b14c;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    flex-grow: 1;
+}
