@@ -9,14 +9,28 @@
 <body>
     <div id="container">
         <div id="problem">
+            <div id="puzzle-buttons">
+                <button data-puzzle="puzzle_01">
+                    Puzzle One
+                </button>
+                <button data-puzzle="puzzle_02">
+                    Puzzle Two
+                </button>
+            </div>
             <div id="description">
-                <h2>Puzzle One</h2>
-                <p>Some of the sheep have escaped their pens! We have a function called `move_all_sheep` which takes two arguments: x and y, and moves all sheep by those thingies. Make sure that all sheep are in their pens, and that you haven't moved any sheep that were in the pen, out of the pen.</p>
+            </div>
+            <div id="solution">
+                ????
             </div>
         </div>
         <div id="visuals">
             <p>Here's the sheeps!</p>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <script src="puzzle_01.js"></script>
+    <script src="puzzle_02.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
