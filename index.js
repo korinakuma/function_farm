@@ -40,14 +40,22 @@ var setup = function() {
     createCanvas(500, 650, P2D, displayCanvas);
 }
   
-var draw = function() {
-    background(220);
-    drawSheep(0, 0);
-    drawSheep(200, 300);
-    drawSheep(300, 600);
-    drawSheep(400, 200);
-}
+var tick = 0;
 var sheepSize = 100;
+
+// how we made them move 
+var draw = function() {
+    var phase = tick*Math.PI/180;
+    var wiggleX = Math.cos(phase)*(sheepSize/4);
+    var wiggleY = Math.sin(phase*5)*(sheepSize/4);
+    background(220);
+    drawSheep(100 + wiggleX, 100 + wiggleY);
+    drawSheep(200 + wiggleX, 300 + wiggleY);
+    drawSheep(300 + wiggleX, 600 + wiggleY);
+    drawSheep(400 + wiggleX, 200 + wiggleY);
+    tick += 1;
+}
+
 
 var drawSheep = function(x, y) {
     image(
