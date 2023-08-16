@@ -42,5 +42,23 @@ var setup = function() {
   
 var draw = function() {
     background(220);
-    image(sheepImage, 0, 0) 
+    drawSheep(0, 0);
+    drawSheep(200, 300);
+    drawSheep(300, 600);
+    drawSheep(400, 200);
+}
+var sheepSize = 100;
+
+var drawSheep = function(x, y) {
+    image(
+        sheepImage, // Image to draw
+        x - (sheepSize / 2), // position in destination canvas
+        y - (sheepSize / 2), // position in destination canvas
+        sheepSize, // destination width
+        sheepSize, //destination height
+        0, // source top left corner
+        0, // source top left corner
+        sheepImage.width, //source width
+        sheepImage.height// source height
+    )
 }
