@@ -51,6 +51,5 @@ var puzzle_01 = {
     },
     // Draw our scene, we will use p5.js and the image function to draw our pen, our sheep, and any background :) 
     // TO DO: Write the draw function 
-    // TO DO: Load the p5.js library
     
 }
