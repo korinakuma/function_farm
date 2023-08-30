@@ -47,17 +47,50 @@ var sheepSize = 100;
 var draw = function() {
     var phase = tick*Math.PI/180;
     var wiggleX = Math.cos(phase)*(sheepSize/4);
-    var wiggleY = Math.abs(Math.sin(phase*5))*(-sheepSize/2);
-    background(220);
-    drawSheep(100 + wiggleX, 100 + wiggleY);
+    var wiggleY = Math.abs(Math.sin(phase*5))*(-sheepSize/4);
+    // background(220);
+    clear();
+    stroke('#593018');
+    strokeWeight(20);
+    noFill();
+    rect(10, 10, 200, 200, 15);
+
+    drawSheep(100 + wiggleX, 100 + wiggleY, true);
     drawSheep(200 + wiggleX, 300 + wiggleY);
     drawSheep(300 + wiggleX, 600 + wiggleY);
     drawSheep(400 + wiggleX, 200 + wiggleY);
     tick += 1;
 }
 
+var drawCheck = function(x, y) {
+    push();
+    translate(x, y);
+    stroke('#090');
+    strokeWeight(5);
+    beginShape(LINES);
+    vertex(-20, 0);
+    vertex(0, 15);
+    vertex(0, 15);
+    vertex(30, -40);
+    endShape();
+    pop();
+}
+var drawCross = function(x, y) {
+    var size = 20;
+    push();
+    translate(x, y);
+    stroke('#900');
+    strokeWeight(5);
+    beginShape(LINES);
+    vertex(-size, -size);
+    vertex(size, size);
+    vertex(size, -size);
+    vertex(-size, size);
+    endShape();
+    pop();
+}
 
-var drawSheep = function(x, y) {
+var drawSheep = function(x, y, isGood) {
     image(
         sheepImage, // Image to draw
         x - (sheepSize / 2), // position in destination canvas
@@ -69,4 +102,10 @@ var drawSheep = function(x, y) {
         sheepImage.width, //source width
         sheepImage.height// source height
     )
+    if (isGood) {
+        drawCheck(x, y);
+    } else {
+        drawCross(x, y);
+    }
+    
 }
