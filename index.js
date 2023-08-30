@@ -9,8 +9,10 @@ var puzzleMap = {
 
 };
 
+var currentPuzzle;
+
 var activatePuzzleByName = function(name) {
-    var currentPuzzle = puzzleMap[name];
+    currentPuzzle = puzzleMap[name];
     if (!currentPuzzle) {
         throw new Error('Invalid Puzzle Name: ' + name);
     } 
@@ -20,6 +22,8 @@ var activatePuzzleByName = function(name) {
     `
     currentPuzzle.setup();
 };
+
+activatePuzzleByName('puzzle_01');
 
 var handlePuzzleButtonClick = function(clickEvent) {
     var puzzleName = clickEvent.target.dataset.puzzle;
@@ -45,21 +49,9 @@ var sheepSize = 100;
 
 // how we made them move 
 var draw = function() {
-    var phase = tick*Math.PI/180;
-    var wiggleX = Math.cos(phase)*(sheepSize/4);
-    var wiggleY = Math.abs(Math.sin(phase*5))*(-sheepSize/4);
-    // background(220);
-    clear();
-    stroke('#593018');
-    strokeWeight(20);
-    noFill();
-    rect(10, 10, 200, 200, 15);
-
-    drawSheep(100 + wiggleX, 100 + wiggleY, true);
-    drawSheep(200 + wiggleX, 300 + wiggleY);
-    drawSheep(300 + wiggleX, 600 + wiggleY);
-    drawSheep(400 + wiggleX, 200 + wiggleY);
-    tick += 1;
+   if (currentPuzzle) {
+    currentPuzzle.draw();
+   }
 }
 
 var drawCheck = function(x, y) {
@@ -90,7 +82,7 @@ var drawCross = function(x, y) {
     pop();
 }
 
-var drawSheep = function(x, y, isGood) {
+var drawSheep = function(x, y, name, isGood) {
     image(
         sheepImage, // Image to draw
         x - (sheepSize / 2), // position in destination canvas
@@ -106,6 +98,17 @@ var drawSheep = function(x, y, isGood) {
         drawCheck(x, y);
     } else {
         drawCross(x, y);
-    }
+    } 
+    textSize(16);
+    noStroke();
+    fill('black');
+    text(name, x -(sheepSize/2), y - (sheepSize/3))
     
+}
+
+var drawPen = function(pen) {
+    stroke('#593018');
+    strokeWeight(20);
+    noFill();
+    rect(pen.x, pen.y, pen.width, pen.height, 15);
 }

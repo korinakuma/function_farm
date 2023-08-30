@@ -1,10 +1,10 @@
-var sheep = [];
+var puzzle01Sheep = [];
 
-var pen = {
+var puzzle01Pen = {
     x : 10,
     y : 10,
-    width : 50,
-    height : 40,
+    width : 250,
+    height : 250,
 }
 
 var puzzle_01 = {
@@ -21,35 +21,54 @@ var puzzle_01 = {
     },
 
     setup : function(){
-        sheep = [
+        puzzle01Sheep = [
             {
                 name : 'newman',
-                x : 2,
-                y : 5
+                x : 60,
+                y : 150
             },
             {
                 name : 'elaine',
-                x : 7,
-                y : 5
+                x : 200,
+                y : 150
             },
             {
                 name : 'george',
-                x : 5,
-                y : 10
+                x : 150,
+                y : 300
             },
             {
                 name : 'jerry',
-                x : 9,
-                y : 8
+                x : 250,
+                y : 250
             },
             {
                 name : 'kramer',
-                x : 2,
-                y : 7
+                x : 60,
+                y : 300
             },
         ]
-    },
-    // Draw our scene, we will use p5.js and the image function to draw our pen, our sheep, and any background :) 
-    // TO DO: Write the draw function 
+    },    
     
-}
+    draw : function() {
+        var phase = tick*Math.PI/180;
+        var wiggleX = Math.cos(phase)*(sheepSize/4);
+        var wiggleY = Math.abs(Math.sin(phase*5))*(-sheepSize/4);
+        // background(220);
+        clear();
+        
+        drawPen(puzzle01Pen);
+        puzzle01Sheep.forEach(function(currentSheep){
+            drawSheep(
+                currentSheep.x + wiggleX,
+                currentSheep.y + wiggleY,
+                currentSheep.name,
+                false
+            )
+        })
+
+        tick += 1;
+    }
+    // TO DO: Determine whether the sheep are actually inside the pen, 
+    // build a success testing function :D 
+};
