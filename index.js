@@ -47,7 +47,7 @@ var sheepSize = 100;
 var draw = function() {
     var phase = tick*Math.PI/180;
     var wiggleX = Math.cos(phase)*(sheepSize/4);
-    var wiggleY = Math.sin(phase*5)*(sheepSize/4);
+    var wiggleY = Math.abs(Math.sin(phase*5))*(-sheepSize/2);
     background(220);
     drawSheep(100 + wiggleX, 100 + wiggleY);
     drawSheep(200 + wiggleX, 300 + wiggleY);
