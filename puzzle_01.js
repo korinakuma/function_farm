@@ -59,11 +59,12 @@ var puzzle_01 = {
         
         drawPen(puzzle01Pen);
         puzzle01Sheep.forEach(function(currentSheep){
+            var isSheepInPen = isPointInsideRect(currentSheep, puzzle01Pen)
             drawSheep(
                 currentSheep.x + wiggleX,
                 currentSheep.y + wiggleY,
                 currentSheep.name,
-                false
+                isSheepInPen
             )
         })
 

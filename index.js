@@ -112,3 +112,19 @@ var drawPen = function(pen) {
     noFill();
     rect(pen.x, pen.y, pen.width, pen.height, 15);
 }
+
+var isPointInsideRect = function (point, rect) {
+    // A point is an object that has x and y properties
+    // A rect has x, y, width, and height properties
+    var isPointInsideX = (
+        point.x >= rect.x // is the point right of the left edge of the rectangle
+        && point.x <= (rect.x + rect.width) // is the point left of the right edge of the rectangle 
+    );
+
+    var isPointInsideY = (
+        point.y >= rect.y // is the point below of the top edge of the rectangle
+        && point.y <= (rect.x + rect.height) // is the point above of the bottom edge of the rectangle 
+    );
+
+    return isPointInsideX && isPointInsideY
+}
