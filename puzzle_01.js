@@ -12,8 +12,8 @@ var puzzle_01 = {
     description : 'Some of the sheep have escaped their pens! We have a function called `move_all_sheep` which takes two arguments: x and y, and moves all sheep by those thingies. Make sure that all sheep are in their pens, and that you haven\'t moved any sheep that were in the pen, out of the pen.',
     userAccessibleFunctions : {
         move_all_sheep : function(x, y) {
-            for (let i = 0; i < sheep.length; i++) {
-                const currentSheep = sheep[i];
+            for (let i = 0; i < puzzle01Sheep.length; i++) {
+                const currentSheep = puzzle01Sheep[i];
                 currentSheep.x += x;
                 currentSheep.y += y;
             }

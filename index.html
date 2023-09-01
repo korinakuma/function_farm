@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Function Farm</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./atelier-dune-light.css" />
 </head>
 <body>
     <div id="container">
@@ -20,7 +21,25 @@
             <div id="description">
             </div>
             <div id="solution">
-                ????
+                <form id="solution-form">
+                    <label>
+                        <span>X: </span>
+                        <input name="x" />
+                    </label>
+                    <label>
+                        <span>Y: </span>
+                        <input name="y" />
+                    </label>
+                    <input type="submit" />
+                    <pre>
+<code><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; puzzle01Sheep.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-keyword">const</span> currentSheep = puzzle01Sheep[i];
+        currentSheep.<span class="hljs-property">x</span> += x;
+        currentSheep.<span class="hljs-property">y</span> += y;
+    }
+}  </code></pre>
+                </form>
             </div>
         </div>
         <div id="visuals">

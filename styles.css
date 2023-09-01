@@ -28,7 +28,8 @@ body {
 
 }
 
-#description {
+#description,
+#solution{
     border-radius: 1rem;
     background-color: white;
     color: #2c1190;
@@ -41,4 +42,8 @@ body {
     border-radius: 1rem;
     margin-left: 1rem;
     flex-grow: 1;
+}
+
+#solution {
+    margin-top: 1rem;
 }

@@ -1,6 +1,7 @@
 var descriptionElement = document.getElementById('description'); 
 var puzzleButtonHolder = document.getElementById('puzzle-buttons'); 
 var displayCanvas = document.getElementById('display-canvas');
+var solutionForm = document.getElementById('solution-form');
 
 
 var puzzleMap = {
@@ -32,8 +33,15 @@ var handlePuzzleButtonClick = function(clickEvent) {
         activatePuzzleByName(puzzleName);
     }
 }
-
 puzzleButtonHolder.addEventListener('click', handlePuzzleButtonClick);
+
+
+var handleFormSubmit = function(formSubmitEvent) {
+    // console.log('what is form submit event?', formSubmitEvent);
+    formSubmitEvent.preventDefault();
+}
+
+solutionForm.addEventListener('submit', handleFormSubmit);
 
 var sheepImage 
 var preload = function() {
