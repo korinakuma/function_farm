@@ -131,7 +131,7 @@ var isPointInsideRect = function (point, rect) {
 
     var isPointInsideY = (
         point.y >= rect.y // is the point below of the top edge of the rectangle
-        && point.y <= (rect.x + rect.height) // is the point above of the bottom edge of the rectangle 
+        && point.y <= (rect.y + rect.height) // is the point above of the bottom edge of the rectangle 
     );
 
     return isPointInsideX && isPointInsideY
