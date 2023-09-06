@@ -12,6 +12,20 @@ var puzzleMap = {
 
 var currentPuzzle;
 
+var setupPuzzleForm = function() {
+    
+    var codeHolder = document.getElementById('user-accessible-function-text')
+    var functionNames = Object.keys(currentPuzzle.userAccessibleFunctions)
+    var functionBodies = functionNames.map(function(name) {
+        return currentPuzzle.userAccessibleFunctions[name].toString();
+    })
+    codeHolder.innerHTML = functionBodies.join('\n')
+
+    hljs.highlightAll();
+    var argumentNamesElement = document.querySelector('.hljs-params');
+    console.log('what is argumentNamesElement', argumentNamesElement);
+}
+
 var activatePuzzleByName = function(name) {
     currentPuzzle = puzzleMap[name];
     if (!currentPuzzle) {
@@ -22,6 +36,7 @@ var activatePuzzleByName = function(name) {
     <p>${currentPuzzle.description}</p>
     `
     currentPuzzle.setup();
+    setupPuzzleForm();
 };
 
 activatePuzzleByName('puzzle_01');

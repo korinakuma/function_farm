@@ -11,12 +11,35 @@ var puzzle_01 = {
     name : 'Puzzle One',
     description : 'Some of the sheep have escaped their pens! We have a function called `move_all_sheep` which takes two arguments: x and y, and moves all sheep by those thingies. Make sure that all sheep are in their pens, and that you haven\'t moved any sheep that were in the pen, out of the pen.',
     userAccessibleFunctions : {
-        move_all_sheep : function(x, y) {
+        move_all_sheep : function move_all_sheep (x, y) {
             for (let i = 0; i < puzzle01Sheep.length; i++) {
                 const currentSheep = puzzle01Sheep[i];
                 currentSheep.x += x;
                 currentSheep.y += y;
             }
+        }
+    },
+
+    userAccessibleForms : {
+        move_all_sheep : {
+            x : {
+                html : `
+                <label>
+                <span>X: </span>
+                <input name="x" id="puzzle01_x"/>
+                </label>`,
+                selector : '#puzzle01_x'
+            },
+
+            y : {
+                html : `
+                <label>
+                <span>Y: </span>
+                <input name="y" id="puzzle01_y"/>
+                </label>`,
+                selector : '#puzzle01_y'
+            },
+
         }
     },
 
