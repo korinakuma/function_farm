@@ -21,12 +21,24 @@ var setupPuzzleForm = function() {
     })
     codeHolder.innerHTML = functionBodies.join('\n')
 
-    // TO DO: Highlight element doesn't give us timing information for when it's done, use DOM mutation observers to get this information? 
+    var codeMutationCallBack = function(mutationRecords) {
+        console.log('what is MutationRecords?', mutationRecords);
+        // TO DO: sometimes this function is called multiple times before the code is fully rendered
+        // TO DO: When the function has a name, we don't get the params <span>, when the function doesn't have a name, we do have the class >:( )
+        var argumentNamesElement = document.querySelector('.hljs-params');
+        console.log('what is argumentNamesElement', argumentNamesElement);
+    };
+
+    var mutationObserver = new MutationObserver(codeMutationCallBack);
+    console.log('what is mutationObserver?', mutationObserver);
+
+    mutationObserver.observe(codeHolder, {childList: true})
+
     var highlightResult = hljs.highlightElement(codeHolder);
     console.log('what is highlightResult?', highlightResult);
-    var argumentNamesElement = document.querySelector('.hljs-params');
-    console.log('what is argumentNamesElement', argumentNamesElement);
-}
+    
+} 
+
 
 var activatePuzzleByName = function(name) {
     currentPuzzle = puzzleMap[name];
@@ -39,7 +51,7 @@ var activatePuzzleByName = function(name) {
     `
     currentPuzzle.setup();
     setupPuzzleForm();
-};
+}; 
 
 activatePuzzleByName('puzzle_01');
 
