@@ -21,7 +21,9 @@ var setupPuzzleForm = function() {
     })
     codeHolder.innerHTML = functionBodies.join('\n')
 
-    hljs.highlightAll();
+    // TO DO: Highlight element doesn't give us timing information for when it's done, use DOM mutation observers to get this information? 
+    var highlightResult = hljs.highlightElement(codeHolder);
+    console.log('what is highlightResult?', highlightResult);
     var argumentNamesElement = document.querySelector('.hljs-params');
     console.log('what is argumentNamesElement', argumentNamesElement);
 }
