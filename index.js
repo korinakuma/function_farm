@@ -17,7 +17,7 @@ var setupPuzzleForm = function() {
     var codeHolder = document.getElementById('user-accessible-function-text')
     var functionNames = Object.keys(currentPuzzle.userAccessibleFunctions)
     var functionBodies = functionNames.map(function(name) {
-        return currentPuzzle.userAccessibleFunctions[name].toString();
+        return 'var ' + name + ' = ' + currentPuzzle.userAccessibleFunctions[name].toString();
     })
     codeHolder.innerHTML = functionBodies.join('\n')
 
@@ -27,6 +27,8 @@ var setupPuzzleForm = function() {
         // TO DO: When the function has a name, we don't get the params <span>, when the function doesn't have a name, we do have the class >:( )
         var argumentNamesElement = document.querySelector('.hljs-params');
         console.log('what is argumentNamesElement', argumentNamesElement);
+        // TO DO: This but procedual based on userAccessibleForms
+        argumentNamesElement.innerHTML = '<input type="number" placeholder="x"> <input type="number" placeholder="y">'
     };
 
     var mutationObserver = new MutationObserver(codeMutationCallBack);
